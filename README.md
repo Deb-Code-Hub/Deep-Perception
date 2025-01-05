@@ -63,16 +63,24 @@ Create a virtual environment and install the following packages:
           }
    }
 
-5. Create the Database: Make sure you have created the database in PostgreSQL. You can create a database using pgAdmin or by running the following SQL command:
+5. Create the Database:
+   
+   Make sure you have created the database in PostgreSQL.
+
+   You can create a database using pgAdmin or by running the following SQL command:
+   
    ````sh
    CREATE DATABASE your_database_name;
 
-6. Run Migrations: Apply the migrations to your PostgreSQL database using the following Django management commands:
+7. Run Migrations:
+
+   Apply the migrations to your PostgreSQL database using the following Django management commands:
+   
    ```sh
    python manage.py makemigrations
    python manage.py migrate
 
-7. Run the development server:
+8. Run the development server:
    ```sh
    python manage.py runserver
 
