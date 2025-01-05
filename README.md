@@ -84,7 +84,7 @@ Create a virtual environment and install the following packages:
    ```sh
    python manage.py runserver
 
-### Usage
+## Usage
 
 After starting the development server, you can access the website at http://localhost:8000 and explore the different computer vision features.
    
