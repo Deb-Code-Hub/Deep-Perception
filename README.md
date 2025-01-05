@@ -1,4 +1,4 @@
-# # Deep Perception: A Computer Vision Website
+# Deep Perception: A Computer Vision Website
 
 This project is a computer vision website built using the Django framework, providing the following five main features:
 
