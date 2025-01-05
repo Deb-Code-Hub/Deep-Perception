@@ -48,26 +48,26 @@ Create a virtual environment and install the following packages:
 3. Configure your Database Settings:
    
    I. Edit your settings.py file in your Django project to configure the database settings for PostgreSQL. Update the DATABASES dictionary:
-      ```sh
-      DATABASES = {
-          'default': {
-              'ENGINE': 'django.db.backends.postgresql',
-              'NAME': 'your_database_name',
-              'USER': 'your_database_user',
-              'PASSWORD': 'your_database_password',
-              'HOST': 'localhost',  # or your database host
-              'PORT': '5432',       # default PostgreSQL port
-             }
-      }
+         ```sh
+         DATABASES = {
+             'default': {
+                 'ENGINE': 'django.db.backends.postgresql',
+                 'NAME': 'your_database_name',
+                 'USER': 'your_database_user',
+                 'PASSWORD': 'your_database_password',
+                 'HOST': 'localhost',  # or your database host
+                 'PORT': '5432',       # default PostgreSQL port
+                }
+         }
 
    II. Create the Database: Make sure you have created the database in PostgreSQL. You can create a database using pgAdmin or by running the following SQL command:
-      ```sh
-      CREATE DATABASE your_database_name;
+         ````sh
+         CREATE DATABASE your_database_name;
 
    III. Run Migrations: Apply the migrations to your PostgreSQL database using the following Django management commands:
-      ```sh
-      python manage.py makemigrations
-      python manage.py migrate
+         ```sh
+         python manage.py makemigrations
+         python manage.py migrate
 
 
 5. Run the development server:
