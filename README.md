@@ -11,19 +11,19 @@ This project is a real-time computer vision website developed using the Django f
 ## Features
 
 ### Colour Detection using HSV
-This feature allows users to detect and identify different colors in a realtime video using the HSV color space.
+This feature allows users to detect and identify different colors in a realtime video feed using the HSV color space.
 
 ### Object Detection using YOLOv3
-Utilizes the YOLOv3 algorithm to detect various objects within images in a realtime video .
+Utilizes the YOLOv3 algorithm to detect various objects within images in a realtime video feed.
 
 ### Sign Language Detection using SSD
-Implements a Single Shot Multibox Detector (SSD) to recognize and interpret sign language gestures in a realtime video.
+Implements a Single Shot Multibox Detector (SSD) to recognize and interpret sign language gestures in a realtime video feed.
 
 ### Face Recognition using HOG + Linear SVM
-Employs Histogram of Oriented Gradients (HOG) and a Linear Support Vector Machine (SVM) for face detection and recognition in a realtime video.
+Employs Histogram of Oriented Gradients (HOG) and a Linear Support Vector Machine (SVM) for face detection and recognition in a realtime video feed.
 
 ### Handwriting Recognition using CNN
-Uses Convolutional Neural Networks (CNN) to analyze and recognize handwritten text in realtime.
+Uses Convolutional Neural Networks (CNN) to analyze and recognize handwritten text in realtime feed.
 
 ## Installation
 
