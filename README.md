@@ -60,7 +60,7 @@ Create a virtual environment and install the following packages:
                 }
          }
 
-   II. Create the Database: Make sure you have created the database in PostgreSQL. You can create a database using pgAdmin or by running the following SQL command:
+II. Create the Database: Make sure you have created the database in PostgreSQL. You can create a database using pgAdmin or by running the following SQL command:
          ````sh
          CREATE DATABASE your_database_name;
 
