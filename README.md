@@ -41,6 +41,39 @@ Create a virtual environment and install the following packages:
    ```sh
    git clone https://github.com/Deb-Code-Hub/Deep-Perception.git
    
-2. Change into the project directory:
+2. Install dependencies:
    ```sh
+   pip install -r requirements.txt
+
+3. Configure your Database Settings:
+   I. Edit your settings.py file in your Django project to configure the database settings for PostgreSQL. Update the DATABASES dictionary:
+      ```sh
+      DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'your_database_name',
+        'USER': 'your_database_user',
+        'PASSWORD': 'your_database_password',
+        'HOST': 'localhost',  # or your database host
+        'PORT': '5432',       # default PostgreSQL port
+    }
+}
+
+   II. Create the Database: Make sure you have created the database in PostgreSQL. You can create a database using pgAdmin or by running the following SQL command:
+      ```sh
+      CREATE DATABASE your_database_name;
+
+   III. Run Migrations: Apply the migrations to your PostgreSQL database using the following Django management commands:
+      ```sh
+      python manage.py makemigrations
+      python manage.py migrate
+
+
+5. Run the development server:
+   ```sh
+   python manage.py runserver
+
+### Usage
+
+After starting the development server, you can access the website at http://localhost:8000 and explore the different computer vision features.
    
