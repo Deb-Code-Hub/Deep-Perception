@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>HandWriting Recognition</title>
+
+<style>
+    * {
+  box-sizing: border-box;
+}
+
+main {
+  width: 800px;
+  border: 1px solid #e0e0e0;
+  margin: 0 auto;
+  display: flex;
+  flex-grow: 1;
+}
+
+.left-block {
+  width: 160px;
+  border-right: 1px solid #e0e0e0;
+}
+
+.colors {
+  background-color: #ece8e8;
+  text-align: center;
+  padding-bottom: 5px;
+  padding-top: 10px;
+}
+
+.colors button {
+  display: inline-block;
+  border: 1px solid #00000026;
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  margin-bottom: 5px
+}
+
+/*.colors button:nth-of-type(1) {
+  background-color: #0000ff;
+}
+
+.colors button:nth-of-type(2) {
+  background-color: #009fff;
+}
+
+.colors button:nth-of-type(3) {
+  background-color: #0fffff;
+}
+
+.colors button:nth-of-type(4) {
+  background-color: #bfffff;
+}
+
+.colors button:nth-of-type(5) {
+  background-color: #000000;
+}
+
+.colors button:nth-of-type(6) {
+  background-color: #333333;
+}
+
+.colors button:nth-of-type(7) {
+  background-color: #666666;
+}
+
+.colors button:nth-of-type(8) {
+  background-color: #999999;
+}
+
+.colors button:nth-of-type(9) {
+  background-color: #ffcc66;
+}
+
+.colors button:nth-of-type(10) {
+  background-color: #ffcc00;
+}
+
+.colors button:nth-of-type(11) {
+  background-color: #ffff00;
+}
+
+.colors button:nth-of-type(12) {
+  background-color: #ffff99;
+}
+
+.colors button:nth-of-type(13) {
+  background-color: #003300;
+}
+
+.colors button:nth-of-type(14) {
+  background-color: #555000;
+}
+
+.colors button:nth-of-type(15) {
+  background-color: #00ff00;
+}
+
+.colors button:nth-of-type(16) {
+  background-color: #99ff99;
+}
+
+.colors button:nth-of-type(17) {
+  background-color: #f00000;
+}
+
+.colors button:nth-of-type(18) {
+  background-color: #ff6600;
+}
+
+.colors button:nth-of-type(19) {
+  background-color: #ff9933;
+}
+
+.colors button:nth-of-type(20) {
+  background-color: #f5deb3;
+}
+
+.colors button:nth-of-type(21) {
+  background-color: #330000;
+}
+
+.colors button:nth-of-type(22) {
+  background-color: #663300;
+}
+
+.colors button:nth-of-type(23) {
+  background-color: #cc6600;
+}
+
+.colors button:nth-of-type(24) {
+  background-color: #deb887;
+}
+
+.colors button:nth-of-type(25) {
+  background-color: #aa0fff;
+}
+
+.colors button:nth-of-type(26) {
+  background-color: #cc66cc;
+}
+
+.colors button:nth-of-type(27) {
+  background-color: #ff66ff;
+}
+
+.colors button:nth-of-type(28) {
+  background-color: #ff99ff;
+}
+
+.colors button:nth-of-type(29) {
+  background-color: #e8c4e8;
+}*/
+
+.colors button:nth-of-type(1) {
+  background-color: #ffffff;
+}
+
+.brushes {
+  //background-color: purple;
+  padding-top: 5px
+}
+
+.brushes button {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  background-color: #ece8e8;
+  margin-bottom: 5px;
+  padding: 5px;
+  height: 30px;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.brushes button:after {
+  height: 1px;
+  display: block;
+  background: #808080;
+  content: '';
+}
+
+/*.brushes button:nth-of-type(1):after {
+  height: 1px;
+}
+
+.brushes button:nth-of-type(2):after {
+  height: 2px;
+}
+
+.brushes button:nth-of-type(3):after {
+  height: 3px;
+}
+
+.brushes button:nth-of-type(4):after {
+  height: 4px;
+}*/
+
+.brushes button:nth-of-type(1):after {
+  height: 10px;
+}
+.brushes button:nth-of-type(2):after {
+  height: 15px;
+}
+.brushes button:nth-of-type(3):after {
+  height: 20px;
+}
+
+.buttons {
+  height: 80px;
+  padding-top: 10px;
+}
+
+.buttons button {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  background-color: #ece8e8;
+  margin-bottom: 5px;
+  padding: 5px;
+  height: 30px;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.right-block {
+  width: 640px;
+}
+
+#paint-canvas {
+  cursor:crosshair;
+  background-color:black;
+}
+#home
+{
+float:right;
+}
+#top
+{
+color:blue;
+font-size: 40px;
+font-family: Serif;
+margin: 0 auto;
+padding-bottom: 20px;
+padding-left: 90px;
+text-decoration: underline overline;
+text-decoration-color: green;
+}
+#prediction
+{
+color:green;
+margin: 0 auto;
+font-family: Verdana;
+font-size: 30px;
+display: inline;
+padding-top: 30px;
+}
+#predict
+{
+color:red;
+
+margin: 0 auto;
+font-family: Verdana;
+font-size: 30px;
+padding-top: 10px;
+}
+
+
+</style>
+</head>
+<body style="background-color: #f5f5f5">
+	<div style="padding-left:10px;padding-top:10px;">
+        <a href="Go_To_Home" class="btn btn-info btn-lg" >
+          <span class="glyphicon glyphicon-home"></span> Home
+        </a>
+    </div>
+
+	<center><div id="top">
+    <strong>Try to draw at the center of the canvas</strong>
+	</div>
+	</center>
+<main>
+<div class="left-block">
+        <div class="colors">
+          <!--<button type="button" value="#0000ff"></button>
+          <button type="button" value="#009fff"></button>
+          <button type="button" value="#0fffff"></button>
+          <button type="button" value="#bfffff"></button>
+          <button type="button" value="#000000"></button>
+          <button type="button" value="#333333"></button>
+          <button type="button" value="#666666"></button>
+          <button type="button" value="#999999"></button>
+          <button type="button" value="#ffcc66"></button>
+          <button type="button" value="#ffcc00"></button>
+          <button type="button" value="#ffff00"></button>
+          <button type="button" value="#ffff99"></button>
+          <button type="button" value="#003300"></button>
+          <button type="button" value="#555000"></button>
+          <button type="button" value="#00ff00"></button>
+          <button type="button" value="#99ff99"></button>
+          <button type="button" value="#f00000"></button>
+          <button type="button" value="#ff6600"></button>
+          <button type="button" value="#ff9933"></button>
+          <button type="button" value="#f5deb3"></button>
+          <button type="button" value="#330000"></button>
+          <button type="button" value="#663300"></button>
+          <button type="button" value="#cc6600"></button>
+          <button type="button" value="#deb887"></button>
+          <button type="button" value="#aa0fff"></button>
+          <button type="button" value="#cc66cc"></button>
+          <button type="button" value="#ff66ff"></button>
+          <button type="button" value="#ff99ff"></button>
+          <button type="button" value="#e8c4e8"></button>-->
+          <button type="button" value="#ffffff"></button>
+        </div>
+        <div class="brushes">
+          <!--<button type="button" value="1"></button>
+          <button type="button" value="2"></button>
+          <button type="button" value="3"></button>
+          <button type="button" value="4"></button>-->
+          <button type="button" value="10"></button>
+            <button type="button" value="15"></button>
+            <button type="button" value="20"></button>
+        </div>
+        <div class="buttons">
+          <button id="clear" type="button">Clear</button>
+			<button id="submit" type="submit">Recognize</button>
+
+        </div>
+
+</div>
+      <div class="right-block">
+        <canvas id="paint-canvas" width="640" height="400"></canvas>
+      </div>
+
+</main>
+
+	<center><div id="predict">
+		<em><b>Recognized Handwriting : </b></em>
+		<div id="prediction">
+	</div>
+	</div></center>
+
+
+	<script>
+		window.onload = function () {
+
+				// Definitions
+				var canvas = document.getElementById("paint-canvas");
+				var context = canvas.getContext("2d");
+				var boundings = canvas.getBoundingClientRect();
+
+				// Specifications
+				var mouseX = 0;
+				var mouseY = 0;
+				context.strokeStyle = 'white'; // initial brush color
+				context.lineWidth = 20; // initial brush width
+				var isDrawing = false;
+
+
+				// Handle Colors
+				var colors = document.getElementsByClassName('colors')[0];
+
+				colors.addEventListener('click', function(event) {
+				context.strokeStyle = event.target.value || 'black';
+				});
+
+				// Handle Brushes
+				var brushes = document.getElementsByClassName('brushes')[0];
+
+				brushes.addEventListener('click', function(event) {
+				context.lineWidth = event.target.value || 10;
+				});
+
+				// Mouse Down Event
+				canvas.addEventListener('mousedown', function(event) {
+				setMouseCoordinates(event);
+				isDrawing = true;
+
+				// Start Drawing
+				context.beginPath();
+				context.moveTo(mouseX, mouseY);
+				});
+
+				// Mouse Move Event
+				canvas.addEventListener('mousemove', function(event) {
+				setMouseCoordinates(event);
+
+				if(isDrawing){
+				  context.lineTo(mouseX, mouseY);
+				  context.stroke();
+				}
+				});
+
+				// Mouse Up Event
+				canvas.addEventListener('mouseup', function(event) {
+				setMouseCoordinates(event);
+				isDrawing = false;
+				});
+
+				// Handle Mouse Coordinates
+				function setMouseCoordinates(event) {
+				mouseX = event.clientX - boundings.left;
+				mouseY = event.clientY - boundings.top;
+				}
+
+				// Handle Clear Button
+				var clearButton = document.getElementById('clear');
+
+				clearButton.addEventListener('click', function() {
+				context.clearRect(0, 0, canvas.width, canvas.height);
+				});
+
+		};
+
+		const socket = new WebSocket('ws://localhost:8000/ws/hand/');
+		socket.onmessage = (e) => {
+			//console.log(JSON.parse(e.data));
+			//console.log(JSON.parse(e.data).result);
+			result = JSON.parse(e.data).result;
+			//console.log(result);
+			document.getElementById("prediction").innerHTML=  result;
+		}
+
+
+		socket.onclose = (e) => {
+			console.log("Socket closed!");
+		}
+
+
+		//document.querySelector('#exp').onkeyup = function (e) {
+			//if (e.keyCode === 13) { // enter, return
+				//document.querySelector('#submit ').click();
+			//}
+		//};
+
+		document.querySelector("#submit").onclick = (e) => {
+			var dataURL = document.getElementById('paint-canvas').toDataURL("image/png");
+			//inputfield = document.querySelector("#exp")
+			//console.log(inputfield)
+			//exp = inputfield.value
+			//console.log(JSON.stringify(
+				//{
+					//expression: exp
+				//}))
+			socket.send(JSON.stringify(
+				{
+					expression: dataURL
+				}
+			))
+			//document.querySelector("#results").value += "You: " + exp + "\n";
+			//inputfield.value = "";
+		}
+
+	</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

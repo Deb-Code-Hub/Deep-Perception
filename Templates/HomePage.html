@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+body {
+
+font-family: poppins;
+	font-size: 16px;
+	color: #fff;
+
+}
+    #myVideo {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  object-fit: cover;
+  position: fixed;
+
+}
+
+#data
+{
+    font-size:30px;
+    color: white;
+    text-align: center;
+    position: absolute;
+    top:0;
+    left:23%;
+    right:23%;
+}
+#welcome
+{
+    font-size: 50px;
+}
+#hi
+{
+    color: white;
+    font-size: 20px;
+    text-align:center;
+    //position: absolute;
+    //top:0;
+    //right:130%;
+}
+#face
+{
+    text-align: center;
+    position:absolute;
+    top: 70%;
+    left:30%;
+}
+
+#color
+{
+position:absolute;
+top: 80%;
+left:1%;
+}
+
+#object
+{
+float: right;
+position:absolute;
+top: 90%;
+left: 61%;
+}
+
+#sign
+{
+position:absolute;
+top: 90%;
+left:1%;
+}
+
+#hand
+{
+float: right;
+position:absolute;
+top: 80%;
+left: 61%;
+}
+
+button
+{
+    background: transparent;
+    height: 50px;
+    width: 500px;
+    border: 1px solid #3498db;
+    padding-bottom: 5px;
+    margin: auto;
+    cursor : pointer;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+
+
+
+}
+a
+{
+text-decoration:none;
+}
+
+</style>
+</head>
+<body>
+<video autoplay muted loop id="myVideo">
+  <source src="/static/Images/production ID_4736851 (1).mp4" type="video/mp4">
+</video>
+{% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endfor %}
+<div id="content">
+    <div id="data">
+        <div id="welcome"><b>Welcome to DeepPerception</b><br></div>
+        <div>Created By:<br></b>
+<b><em>Renish Pravinchandra Siyodia<br>Debraj Mondal<br>Damodar Purohit<br>Chiranjit Das<br></em></b>
+</div>
+        <br>
+<div id="hi">Hi!! {{name}}
+
+    <a href="Logout" class="btn btn-danger btn-lg">
+          <span class="glyphicon glyphicon-log-out"></span> Log out
+
+    </a>
+
+</div>
+</div>
+
+
+
+
+
+<div id="face">
+    <button type="button"><a href="FaceRecognition"  style="color: red;">Face Recognition</a></button>
+</div>
+
+<div id="color">
+    <button type="button"><a href="ColorDetection" style="color: green;">Colour Detection</a></button>
+</div>
+
+<div id="object">
+    <button type="button"><a href="ObjectDetection" style="color: yellow;">Object Detection</a></button>
+</div>
+
+<div id="sign">
+    <button type="button"><a href="SignLangDetection" style="color: purple;">Sign Language Detection</a></button>
+</div>
+<div id="hand">
+    <button type="button"><a href="HandwritingDetection" style="color: pink;">Handwriting Detection</a></button>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

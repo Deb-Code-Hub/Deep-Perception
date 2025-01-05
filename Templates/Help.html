@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #basic {
+  background: #000;
+  border: 1px solid #ccc;
+  width: 400px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+video, #cssfilters-stream {
+
+}
+video, #cssfilters-video, #screenshot-img {
+    width: 400px;
+    height: 300px;
+}
+audio, canvas, video {
+    display: inline-block;
+}
+
+button {
+    background: #333;
+    color: #FFF;
+    border-radius: 4px;
+    border: 0;
+    padding: 10px 14px;
+}
+
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+button, input {
+    line-height: normal;
+}
+</style>
+<body>
+<div id="basic" style="text-align:center;">
+  <video class="videostream" autoplay="" controls></video>
+  <audio class="audiostream" autoplay=""></audio>
+  <p>
+    <button class="capture-button">Capture</button>
+    <button id="stop-button">Stop</button>
+  </p>
+</div>
+</body>
+<script>
+    (function() {
+
+  const video = document.querySelector('#basic video');
+  const audio = document.querySelector('#basic audio');
+
+  const captureVideoButton = document.querySelector('#basic .capture-button');
+  const stopVideoButton = document.querySelector('#basic #stop-button');
+
+  //Capture Video
+  captureVideoButton.onclick = function() {
+     navigator.mediaDevices.getUserMedia({
+      audio: true,
+      video: true
+    })
+    .then(stream => {
+      window.localStream = stream;
+      video.srcObject = stream;
+      audio.srcObject = stream;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  };
+
+  stopVideoButton.onclick = function() {
+    localStream.getVideoTracks()[0].stop();
+    video.src = '';
+
+    localStream.getAudioTracks()[0].stop();
+    audio.src = '';
+  };
+})();
+</script>
+</html>
