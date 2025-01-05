@@ -42,3 +42,5 @@ Create a virtual environment and install the following packages:
    git clone https://github.com/Deb-Code-Hub/Deep-Perception.git
    
 2. Change into the project directory:
+   ```sh
+   
