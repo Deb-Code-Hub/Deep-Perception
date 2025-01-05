@@ -48,6 +48,7 @@ Create a virtual environment and install the following packages:
 3. Configure your Database Settings:
    
    Edit your settings.py file in your Django project to configure the database settings for PostgreSQL.
+   
    Update the DATABASES dictionary:
    
    ```sh
