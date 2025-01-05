@@ -1,6 +1,6 @@
 # Deep Perception: A Computer Vision Website
 
-This project is a computer vision website built using the Django framework, providing the following five main features:
+This project is a real-time computer vision website developed using the Django framework, offering the following five main features:
 
 - **Colour Detection using HSV**
 - **Object Detection using YOLOv3**
@@ -11,19 +11,19 @@ This project is a computer vision website built using the Django framework, prov
 ## Features
 
 ### Colour Detection using HSV
-This feature allows users to detect and identify different colors within an image using the HSV color space.
+This feature allows users to detect and identify different colors in a realtime video using the HSV color space.
 
 ### Object Detection using YOLOv3
-Utilizes the YOLOv3 algorithm to detect various objects within images in real-time.
+Utilizes the YOLOv3 algorithm to detect various objects within images in a realtime video .
 
 ### Sign Language Detection using SSD
-Implements a Single Shot Multibox Detector (SSD) to recognize and interpret sign language gestures from images or videos.
+Implements a Single Shot Multibox Detector (SSD) to recognize and interpret sign language gestures in a realtime video.
 
 ### Face Recognition using HOG + Linear SVM
-Employs Histogram of Oriented Gradients (HOG) and a Linear Support Vector Machine (SVM) for face detection and recognition.
+Employs Histogram of Oriented Gradients (HOG) and a Linear Support Vector Machine (SVM) for face detection and recognition in a realtime video.
 
 ### Handwriting Recognition using CNN
-Uses Convolutional Neural Networks (CNN) to analyze and recognize handwritten text.
+Uses Convolutional Neural Networks (CNN) to analyze and recognize handwritten text in realtime.
 
 ## Installation
 
