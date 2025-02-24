@@ -14,7 +14,7 @@ This project is a real-time computer vision website developed using the Django f
 This feature allows users to detect and identify different colors in realtime video feeds using the HSV color space.
 
 ### Object Detection using YOLOv3
-Utilizes the YOLOv3 algorithm to detect various objects within images in realtime video feeds.
+Utilizes the YOLOv3 algorithm to detect various objects in realtime video feeds.
 
 ### Sign Language Detection using SSD
 Implements a Single Shot Multibox Detector (SSD) to recognize and interpret sign language gestures in realtime video feeds.
